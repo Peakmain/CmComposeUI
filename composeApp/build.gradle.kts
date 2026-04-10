@@ -16,12 +16,9 @@ kotlin {
         }
     }
 
-    listOf(
-        iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
-            baseName = "ComposeApp"
+    configure(listOf(iosArm64(), iosSimulatorArm64(), iosX64())) {
+        binaries.framework {
+            baseName = "composeApp" // 必须和依赖名匹配
             isStatic = true
         }
     }

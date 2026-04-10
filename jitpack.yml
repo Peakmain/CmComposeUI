@@ -1,7 +1,5 @@
 jdk:
   - openjdk17
 
-before_install:
-  - ./gradlew :composeApp:generateComposeResClass # 强制生成资源类
 install:
-  - ./gradlew publishToMavenLocal -x test
+  - ./gradlew :composeApp:publishToMavenLocal -x test
