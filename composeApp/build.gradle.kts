@@ -6,7 +6,6 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
-    id("maven-publish")
 }
 kotlin {
 
@@ -52,9 +51,9 @@ kotlin {
         iosMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:+")
         }
-        commonTest.dependencies {
+       /* commonTest.dependencies {
             implementation(libs.kotlin.test)
-        }
+        }*/
 
     }
 }
@@ -88,15 +87,4 @@ android {
 
 dependencies {
     debugImplementation(libs.compose.uiTooling)
-}
-
-// 全平台生成 Res 资源
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
-    compilerOptions {
-        freeCompilerArgs.set(
-            listOf(
-                "-Xgenerate-resource-classes=true"
-            )
-        )
-    }
 }
