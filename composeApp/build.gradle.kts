@@ -87,11 +87,3 @@ dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
 
-// 让 Kotlin Multiplatform 发布所有模块到 Maven
-publishing {
-    repositories {
-        maven {
-            url = uri("${rootProject.buildDir}/local-repo")
-        }
-    }
-}
