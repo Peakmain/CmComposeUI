@@ -86,12 +86,3 @@ android {
 dependencies {
     debugImplementation(libs.compose.uiTooling)
 }
-
-publishing {
-    publications {
-        withType<MavenPublication> {
-            groupId = "com.github.Peakmain"
-            artifactId = "CmComposeUI-composeApp"
-        }
-    }
-}
