@@ -16,11 +16,25 @@ dependencyResolutionManagement {
 }
 ```
 
-在模块 `build.gradle.kts` 中添加依赖：
+在共享代码模块 `composeApp/src/commonMain/kotlin` 的 `build.gradle.kts` 中添加依赖：
+
+```kotlin
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation("com.github.Peakmain:CmComposeUI:latest-version")
+            }
+        }
+    }
+}
+```
+
+或者简写方式：
 
 ```kotlin
 dependencies {
-    implementation("com.github.Peakmain:CmComposeUI:latest-version")
+    commonMainImplementation("com.github.Peakmain:CmComposeUI:latest-version")
 }
 ```
 
