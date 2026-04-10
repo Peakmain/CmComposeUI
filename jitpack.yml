@@ -2,4 +2,4 @@ jdk:
   - openjdk17
 
 install:
-  - ./gradlew publishKotlinMultiplatformPublicationToMavenLocal publishIosArm64PublicationToMavenLocal publishIosSimulatorArm64PublicationToMavenLocal publishIosX64PublicationToMavenLocal publishAndroidReleasePublicationToMavenLocal -x test
+  - ./gradlew :composeApp:publishToMavenLocal -x test
