@@ -26,24 +26,24 @@ kotlin {
 
     sourceSets {
         androidMain.dependencies {
-            implementation(libs.compose.uiToolingPreview)
-            implementation(libs.androidx.activity.compose)
-            implementation("io.coil-kt.coil3:coil-network-okhttp:+")
+            api(libs.compose.uiToolingPreview)
+            api(libs.androidx.activity.compose)
+            api("io.coil-kt.coil3:coil-network-okhttp:+")
         }
         commonMain.dependencies {
-            implementation(libs.compose.runtime)
-            implementation(libs.compose.foundation)
-            implementation(libs.compose.material3)
-            implementation(libs.compose.ui)
-            implementation(libs.compose.components.resources)
-            implementation(libs.compose.uiToolingPreview)
-            implementation(libs.androidx.lifecycle.viewmodelCompose)
-            implementation(libs.androidx.lifecycle.runtimeCompose)
+            api(libs.compose.runtime)
+            api(libs.compose.foundation)
+            api(libs.compose.material3)
+            api(libs.compose.ui)
+            api(libs.compose.components.resources)
+            api(libs.compose.uiToolingPreview)
+            api(libs.androidx.lifecycle.viewmodelCompose)
+            api(libs.androidx.lifecycle.runtimeCompose)
             // Coil 核心 + Compose
-            implementation("io.coil-kt.coil3:coil-compose:+")
+            api("io.coil-kt.coil3:coil-compose:+")
 
             // SVG 支持（你代码里用到了，必须加）
-            implementation("io.coil-kt.coil3:coil-svg:+")
+            api("io.coil-kt.coil3:coil-svg:+")
 
 
         }

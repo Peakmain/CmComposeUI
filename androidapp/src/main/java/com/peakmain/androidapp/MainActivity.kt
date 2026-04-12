@@ -15,7 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
 import com.peakmain.androidapp.ui.theme.CmComposeUITheme
-import com.peakmain.cmp_compose.MainActivity
+import com.peakmain.cmp_compose.CmpDemoActivity
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,7 +40,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
         modifier = modifier.clickable {
-            context.startActivity(Intent(context, MainActivity::class.java))
+            context.startActivity(Intent(context, CmpDemoActivity::class.java))
         }
     )
 }
