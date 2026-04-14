@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.composeMultiplatform)
     alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.kotlinxSerialization)
     id("maven-publish")
 }
 kotlin {
@@ -45,7 +46,21 @@ kotlin {
             // SVG 支持（你代码里用到了，必须加）
             api("io.coil-kt.coil3:coil-svg:+")
 
+            // Ktor 核心
+            api("io.ktor:ktor-client-core:+")
+            // 可选：JSON 序列化支持
+            api("io.ktor:ktor-client-content-negotiation:+")
+            api("io.ktor:ktor-serialization-kotlinx-json:+")
+            // 可选：日志
+            api("io.ktor:ktor-client-logging:+")
 
+        }
+        androidMain.dependencies {
+            api(libs.compose.uiToolingPreview)
+            api(libs.androidx.activity.compose)
+            api("io.coil-kt.coil3:coil-network-okhttp:+")
+            // Ktor OkHttp 引擎
+            api("io.ktor:ktor-client-okhttp:+")
         }
         iosMain.dependencies {
             implementation("io.ktor:ktor-client-darwin:+")
