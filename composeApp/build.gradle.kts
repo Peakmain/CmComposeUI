@@ -1,4 +1,5 @@
 import org.gradle.declarative.dsl.schema.FqName.Empty.packageName
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
@@ -18,13 +19,23 @@ kotlin {
         }
     }
 
-    configure(listOf(iosArm64(), iosSimulatorArm64(), iosX64())) {
+    configure(listOf(iosArm64(), iosSimulatorArm64())) {
         binaries.framework {
             baseName = "composeApp" // 必须和依赖名匹配
             isStatic = true
         }
     }
+    // Web - JS 目标
+    js {
+        browser()
+        binaries.executable()
+    }
 
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+        binaries.executable()
+    }
     sourceSets {
         androidMain.dependencies {
             api(libs.compose.uiToolingPreview)
@@ -48,11 +59,13 @@ kotlin {
 
             // Ktor 核心
             api("io.ktor:ktor-client-core:+")
-            // 可选：JSON 序列化支持
+            // JSON 序列化支持
             api("io.ktor:ktor-client-content-negotiation:+")
             api("io.ktor:ktor-serialization-kotlinx-json:+")
-            // 可选：日志
+            // 日志
             api("io.ktor:ktor-client-logging:+")
+            // 日期时间处理
+            api("org.jetbrains.kotlinx:kotlinx-datetime:+")
 
         }
         androidMain.dependencies {
